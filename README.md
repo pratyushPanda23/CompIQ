@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CompIQ
+
+CompIQ is a full-stack Compensation Intelligence Platform inspired by Levels.fyi. It helps users explore, compare, and manage structured compensation data across companies, levels, locations, and compensation components.
+
+## Features
+
+* Compensation Explorer
+* Company Compensation Details
+* Compensation Comparison
+* Add Compensation Records
+* Edit Compensation Records
+* Delete Compensation Records
+* Search Companies
+* Sort Compensation Data
+* Compensation Breakdown
+
+  * Base Salary
+  * Bonus
+  * Stock Compensation
+  * Total Compensation
+
+## Tech Stack
+
+### Frontend
+
+* Next.js 16
+* React
+* TypeScript
+* Tailwind CSS
+
+### Backend
+
+* Next.js API Routes
+
+### Database
+
+* PostgreSQL (Neon)
+
+### ORM
+
+* Prisma
+
+## Architecture
+
+Frontend (Next.js)
+↓
+API Routes
+↓
+Prisma ORM
+↓
+Neon PostgreSQL
+
+## Project Structure
+
+app/
+├── add-salary/
+├── compare/
+├── salaries/
+├── edit-salary/
+├── api/
+├── components/
+├── dashboard/
+
+prisma/
+├── schema.prisma
+├── migrations/
+├── seed.js
+
+lib/
+├── prisma.ts
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open:
 
-## Learn More
+http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+## Database Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a `.env` file:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+DATABASE_URL=your_neon_database_url
+```
 
-## Deploy on Vercel
+Run Prisma migrations:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npx prisma migrate deploy
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Seed sample data:
+
+```bash
+node prisma/seed.js
+```
+
+## Deployment
+
+Recommended deployment:
+
+* Vercel
+* Neon PostgreSQL
+
+## Future Improvements
+
+* Authentication
+* Compensation Analytics
+* Level-Based Filtering
+* Salary Trend Visualizations
+* Compensation Insights Dashboard
+
+## Author
+
+Pratyush Panda
+
+Built as a Full Stack Engineering project focusing on end-to-end systems, frontend-backend integration, deployment readiness, and architecture quality.
