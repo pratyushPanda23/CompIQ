@@ -45,7 +45,11 @@ export default function SalaryCard({
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-blue-500 transition-all duration-300">
 
-      <Link href={`/salaries/${company}`}>
+      <Link
+        href={`/salaries/${encodeURIComponent(
+          company
+        )}`}
+      >
         <div className="flex justify-between items-start mb-4">
 
           <div>
@@ -70,6 +74,7 @@ export default function SalaryCard({
             <p className="text-slate-500">
               Location
             </p>
+
             <p className="text-white">
               {location}
             </p>
@@ -79,6 +84,7 @@ export default function SalaryCard({
             <p className="text-slate-500">
               Base Salary
             </p>
+
             <p className="text-white">
               {baseSalary || "N/A"}
             </p>
@@ -88,6 +94,7 @@ export default function SalaryCard({
             <p className="text-slate-500">
               Bonus
             </p>
+
             <p className="text-white">
               {bonus || "N/A"}
             </p>
@@ -97,6 +104,7 @@ export default function SalaryCard({
             <p className="text-slate-500">
               Stock
             </p>
+
             <p className="text-white">
               {stock || "N/A"}
             </p>

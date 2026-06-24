@@ -9,10 +9,13 @@ export default async function CompanyPage({
 }) {
   const { company } = await params;
 
+  const decodedCompany =
+    decodeURIComponent(company);
+
   const salary =
     await prisma.salary.findFirst({
       where: {
-        company,
+        company: decodedCompany,
       },
     });
 
